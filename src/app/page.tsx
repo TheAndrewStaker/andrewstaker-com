@@ -2,6 +2,20 @@ import RetroWindow from "@/components/AppWindow";
 import AppButton from "@/components/AppButton";
 // TODO make more components
 export default function Home() {
+  const accomplishmentItems = [
+    "12+ years in enterprise software engineering",
+    "Led 30+ software engineers and 10+ testers",
+    "Delivered hundreds of features",
+  ];
+
+  const whoIAmItems = [
+    "Dad",
+    "Software Leader",
+    "Music Maker",
+    "Movie Collector",
+    "Retro Hardware Enthusiast",
+  ];
+
   return (
     <main className="min-h-screen retro-bg bg-[#f4f1e8] text-[#111]">
       <div className="mx-auto max-w-4xl px-6 pt-4 pb-12">
@@ -18,23 +32,17 @@ export default function Home() {
                 </span>
               </h1>
               <p className="mt-4 max-w-2xl text-xl text-[#222]">
-                Engineering leader building reliable backend and platform
-                systems.
+                APIs • Integrations • Reliability • Front End Care • Heavy Metal
               </p>
             </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
-            {[
-              "12+ years enterprise SaaS",
-              "Led 30 devs + 16 QA",
-              "APIs • integrations • reliability",
-              "Delivery at scale",
-            ].map((t) => (
+            {accomplishmentItems.map((item) => (
               <span
-                key={t}
+                key={item}
                 className="retro-border retro-shadow-sm bg-white px-3 py-1 text-sm"
               >
-                {t}
+                {item}
               </span>
             ))}
           </div>
@@ -56,11 +64,9 @@ export default function Home() {
             <div className="retro-border retro-shadow-sm bg-white p-5">
               <h2 className="text-lg font-semibold">Who I Am</h2>
               <ul className="mt-3 list-disc pl-5 text-sm text-[#222]">
-                <li>Dad</li>
-                <li>Software Leader</li>
-                <li>Music Maker</li>
-                <li>Movie Collector</li>
-                <li>Retro Hardware Enthusiast</li>
+                {whoIAmItems.map((item: string) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
             <div className="retro-border retro-shadow-sm bg-white p-5">
