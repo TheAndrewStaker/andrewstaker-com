@@ -7,11 +7,13 @@
     background-size: 100% 3px, 3px 3px;
 }
 
-/* Blinking cursor */
 .crt-cursor {
     animation: blink 1.05s steps(2, start) infinite;
+    display: inline-block;
     line-height: 1;
-    transform: translateY(-0.03em);
+    transform: translateY(-0.06em);
+    font-size: 0.85em;
+    color: rgba(17, 17, 17, 0.55);   /* slightly lighter */
 }
 
 .retro-border {

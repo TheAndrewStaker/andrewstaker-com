@@ -8,11 +8,10 @@ export default function Home() {
         <RetroWindow title="ANDREWSTAKER.COM" subtitle="HOME">
           <div className="flex items-start justify-between gap-6">
             <div>
-              <h1 className="text-5xl leading-none tracking-tight">
+              <h1 className="text-5xl leading-tight tracking-tight">
                 <span>Stephen &#34;Andrew&#34; Staker</span>
                 <span
                   className="crt-cursor ml-2 inline-block align-baseline"
-                  style={{ color: "rgba(17,17,17,0.6)" }}
                   aria-hidden="true"
                 >
                   █
