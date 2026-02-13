@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
+/* Subtle scanlines + texture */
+.retro-bg {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+    radial-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px);
+    background-size: 100% 3px, 3px 3px;
+}
+
+/* Blinking cursor */
+.crt-cursor {
+    animation: blink 1.05s steps(2, start) infinite;
+    line-height: 1;
+    transform: translateY(-0.03em);
+}
+
+.retro-border {
+    border: 2px solid #111;
+}
+
+.retro-shadow {
+    box-shadow: 8px 8px 0 #111;
+}
+
+.retro-shadow-sm {
+    box-shadow: 3px 3px 0 #111;
+}
+
+@keyframes blink {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Optional: vignette to feel more CRT */
+.crt-vignette {
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.08);
+}
+
+/* -------- App theme hooks (general-purpose) -------- */
+/* These are intentionally generic so you can re-theme later. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --app-bg: #efeadd; /* page background (warm) */
+    --app-surface: #fdfcf8; /* window background */
+    --app-surface-2: #ffffff; /* cards */
+    --app-text: #111111;
+    --app-text-muted: #222222;
+    --app-border: #111111;
+    --app-titlebar: #111111;
+    --app-titlebar-text: #fdfcf8;
+    --app-accent: #ffe600; /* primary button */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Page */
+.app-page {
+    background: var(--app-bg);
+    color: var(--app-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Window container */
+.app-window {
+    background: var(--app-surface);
+    border: 2px solid var(--app-border);
+    box-shadow: 8px 8px 0 var(--app-border);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.app-window__titlebar {
+    background: var(--app-titlebar);
+    color: var(--app-titlebar-text);
+    border-bottom: 2px solid var(--app-border);
+}
+
+.app-window__content {
+    padding: 2rem; /* 32px */
+}
+
+.app-window__statusbar {
+    background: var(--app-bg);
+    color: var(--app-text);
+    border-top: 2px solid var(--app-border);
+}
+
+/* Buttons */
+.app-button {
+    display: inline-block;
+    border: 2px solid var(--app-border);
+    box-shadow: 3px 3px 0 var(--app-border);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.app-button:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 var(--app-border);
+}
+
+.app-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--app-border);
+}
+
+.app-button--primary {
+    background: var(--app-accent);
+}
+
+.app-button--secondary {
+    background: var(--app-surface-2);
+}
+
+/* Card */
+.app-card {
+    background: var(--app-surface-2);
+    border: 2px solid var(--app-border);
+    box-shadow: 3px 3px 0 var(--app-border);
+    padding: 1.25rem;
 }

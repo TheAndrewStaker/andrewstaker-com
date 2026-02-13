@@ -1,65 +1,100 @@
-import Image from "next/image";
-
+import RetroWindow from "@/components/AppWindow";
+import AppButton from "@/components/AppButton";
+// TODO make more components
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="min-h-screen retro-bg bg-[#f4f1e8] text-[#111]">
+      <div className="mx-auto max-w-4xl px-6 pt-4 pb-12">
+        <RetroWindow title="ANDREWSTAKER.COM" subtitle="HOME">
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <h1 className="text-5xl leading-none tracking-tight">
+                <span>Stephen &#34;Andrew&#34; Staker</span>
+                <span
+                  className="crt-cursor ml-2 inline-block align-baseline"
+                  style={{ color: "rgba(17,17,17,0.6)" }}
+                  aria-hidden="true"
+                >
+                  █
+                </span>
+              </h1>
+              <p className="mt-4 max-w-2xl text-xl text-[#222]">
+                Engineering leader building reliable backend and platform
+                systems.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {[
+              "12+ years enterprise SaaS",
+              "Led 30 devs + 16 QA",
+              "APIs • integrations • reliability",
+              "Delivery at scale",
+            ].map((t) => (
+              <span
+                key={t}
+                className="retro-border retro-shadow-sm bg-white px-3 py-1 text-sm"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <AppButton
+              href="/stephen-andrew-staker-resume.pdf"
+              variant="primary"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Download Resume
+            </AppButton>
+            <AppButton
+              href="mailto:stephenstaker@gmail.com"
+              variant="secondary"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              Contact Me
+            </AppButton>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="retro-border retro-shadow-sm bg-white p-5">
+              <h2 className="text-lg font-semibold">Who I Am</h2>
+              <ul className="mt-3 list-disc pl-5 text-sm text-[#222]">
+                <li>Dad</li>
+                <li>Software Leader</li>
+                <li>Music Maker</li>
+                <li>Movie Collector</li>
+                <li>Retro Hardware Enthusiast</li>
+              </ul>
+            </div>
+            <div className="retro-border retro-shadow-sm bg-white p-5">
+              <h2 className="text-lg font-semibold">Links</h2>
+              <div id="links" className="mt-3 text-sm text-[#222]">
+                <a
+                  className="underline"
+                  href="https://www.linkedin.com/in/stephen-andrew-staker-4a602783"
+                >
+                  LinkedIn
+                </a>{" "}
+                •{" "}
+                <a
+                  className="underline"
+                  href="https://github.com/TheAndrewStaker"
+                >
+                  GitHub
+                </a>{" "}
+                •{" "}
+                <a
+                  className="underline"
+                  href="https://soundcloud.com/andrewstaker"
+                >
+                  SoundCloud
+                </a>
+              </div>
+            </div>
+          </div>
+        </RetroWindow>
+        <p className="mt-6 text-center text-xs text-[#333]">
+          Built with Next.js + Tailwind. Retro aesthetic; modern code.
+        </p>
+      </div>
+    </main>
   );
 }
