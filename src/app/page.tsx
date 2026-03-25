@@ -1,105 +1,169 @@
-import RetroWindow from "@/components/AppWindow";
-import AppButton from "@/components/AppButton";
-// TODO make more components
+"use client";
+
+import {
+  Container,
+  Typography,
+  Button,
+  Card,
+  CardContent,
+  Chip,
+  Box,
+  Link,
+  Divider,
+  Stack,
+  Grid,
+} from "@mui/material";
+import DownloadIcon from "@mui/icons-material/Download";
+import EmailIcon from "@mui/icons-material/Email";
+
+const accomplishments = [
+  "12+ years in enterprise software engineering",
+  "Led 30+ software engineers and 10+ testers",
+  "Delivered hundreds of features",
+];
+
+const whoIAm = [
+  "Dad",
+  "Software Leader",
+  "Music Maker",
+  "Movie Collector",
+  "Retro Hardware Enthusiast",
+];
+
+const links = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/stephen-andrew-staker-4a602783" },
+  { label: "GitHub", href: "https://github.com/TheAndrewStaker" },
+  { label: "SoundCloud", href: "https://soundcloud.com/andrewstaker" },
+];
+
 export default function Home() {
-  const accomplishmentItems = [
-    "12+ years in enterprise software engineering",
-    "Led 30+ software engineers and 10+ testers",
-    "Delivered hundreds of features",
-  ];
-
-  const whoIAmItems = [
-    "Dad",
-    "Software Leader",
-    "Music Maker",
-    "Movie Collector",
-    "Retro Hardware Enthusiast",
-  ];
-
   return (
-    <main className="min-h-screen retro-bg bg-[#f4f1e8] text-[#111]">
-      <div className="mx-auto max-w-4xl px-6 pt-4 pb-12">
-        <RetroWindow title="ANDREWSTAKER.COM" subtitle="HOME">
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <h1 className="text-5xl leading-tight tracking-tight">
-                <span>Stephen &#34;Andrew&#34; Staker</span>
-                <span
-                  className="crt-cursor ml-2 inline-block align-baseline"
-                  aria-hidden="true"
-                >
-                  █
-                </span>
-              </h1>
-              <p className="mt-4 max-w-2xl text-xl text-[#222]">
-                APIs • Integrations • Reliability • Front End Care • Heavy Metal
-              </p>
-            </div>
-          </div>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {accomplishmentItems.map((item) => (
-              <span
-                key={item}
-                className="retro-border retro-shadow-sm bg-white px-3 py-1 text-sm"
+    <Box
+      sx={{
+        minHeight: "100vh",
+        bgcolor: "background.default",
+        color: "text.primary",
+        py: { xs: 3, md: 4 },
+      }}
+    >
+      <Container maxWidth="md">
+        <Card sx={{ mb: 4 }}>
+          <CardContent sx={{ p: { xs: 3, md: 4 } }}>
+            <Typography variant="h1" noWrap>
+              Stephen &ldquo;Andrew&rdquo; Staker
+            </Typography>
+
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{
+                mt: 1,
+                maxWidth: 600,
+                fontSize: { xs: "0.813rem", sm: "inherit" },
+              }}
+            >
+              APIs &bull; Integrations &bull; Reliability &bull; Front End Care &bull; Heavy Metal
+            </Typography>
+
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              flexWrap="wrap"
+              gap={1}
+              sx={{ mt: 2.5 }}
+            >
+              {accomplishments.map((item) => (
+                <Chip
+                  key={item}
+                  label={item}
+                  variant="outlined"
+                  sx={{ width: { xs: "100%", sm: "auto" } }}
+                />
+              ))}
+            </Stack>
+
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              gap={2}
+              sx={{ mt: 3 }}
+            >
+              <Button
+                variant="contained"
+                href="/stephen-andrew-staker-resume.pdf"
+                startIcon={<DownloadIcon />}
+                size="large"
+                fullWidth
+                sx={{ maxWidth: { sm: "fit-content" } }}
               >
-                {item}
-              </span>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <AppButton
-              href="/stephen-andrew-staker-resume.pdf"
-              variant="primary"
-            >
-              Download Resume
-            </AppButton>
-            <AppButton
-              href="mailto:stephenstaker@gmail.com"
-              variant="secondary"
-            >
-              Contact Me
-            </AppButton>
-          </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <div className="retro-border retro-shadow-sm bg-white p-5">
-              <h2 className="text-lg font-semibold">Who I Am</h2>
-              <ul className="mt-3 list-disc pl-5 text-sm text-[#222]">
-                {whoIAmItems.map((item: string) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="retro-border retro-shadow-sm bg-white p-5">
-              <h2 className="text-lg font-semibold">Links</h2>
-              <div id="links" className="mt-3 text-sm text-[#222]">
-                <a
-                  className="underline"
-                  href="https://www.linkedin.com/in/stephen-andrew-staker-4a602783"
-                >
-                  LinkedIn
-                </a>{" "}
-                •{" "}
-                <a
-                  className="underline"
-                  href="https://github.com/TheAndrewStaker"
-                >
-                  GitHub
-                </a>{" "}
-                •{" "}
-                <a
-                  className="underline"
-                  href="https://soundcloud.com/andrewstaker"
-                >
-                  SoundCloud
-                </a>
-              </div>
-            </div>
-          </div>
-        </RetroWindow>
-        <p className="mt-6 text-center text-xs text-[#333]">
-          Built with Next.js + Tailwind. Retro aesthetic; modern code.
-        </p>
-      </div>
-    </main>
+                Download Resume
+              </Button>
+              <Button
+                variant="outlined"
+                href="mailto:stephenstaker@gmail.com"
+                startIcon={<EmailIcon />}
+                size="large"
+                fullWidth
+                sx={{ maxWidth: { sm: "fit-content" } }}
+              >
+                Contact Me
+              </Button>
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <Grid container spacing={3}>
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <Card sx={{ height: "100%" }}>
+              <CardContent sx={{ p: 3 }}>
+                <Typography variant="h2" gutterBottom>
+                  Who I Am
+                </Typography>
+                <Divider sx={{ mb: 2 }} />
+                <Stack spacing={1}>
+                  {whoIAm.map((item) => (
+                    <Typography key={item} variant="body1">
+                      {item}
+                    </Typography>
+                  ))}
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <Card sx={{ height: "100%" }}>
+              <CardContent sx={{ p: 3 }}>
+                <Typography variant="h2" gutterBottom>
+                  Links
+                </Typography>
+                <Divider sx={{ mb: 2 }} />
+                <Stack direction="row" flexWrap="wrap" gap={1.5}>
+                  {links.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      underline="hover"
+                      variant="body1"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          align="center"
+          sx={{ mt: 6 }}
+        >
+          Built with Next.js + MUI. Toggle themes with the palette button.
+        </Typography>
+      </Container>
+    </Box>
   );
 }

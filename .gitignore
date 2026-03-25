@@ -42,3 +42,8 @@ next-env.d.ts
 
 # JetBrains IDE
 /.idea/
+
+# Claude Code
+.claude/
+CLAUDE.md
+PLAN.md

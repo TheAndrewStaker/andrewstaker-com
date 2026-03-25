@@ -1,22 +1,29 @@
-import type { Metadata } from "next";
-import { VT323 } from "next/font/google";
-import "./globals.css";
+import type { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
-
-const vt323Font = VT323({
-  weight: "400",
-  subsets: ["latin"],
-});
+import ThemeRegistry from "@/theme/ThemeRegistry";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export const metadata: Metadata = {
   title: 'Stephen "Andrew" Staker',
   description: "Engineering leader building reliable backend systems",
+  appleWebApp: { capable: true, statusBarStyle: "default" },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${vt323Font.className} antialiased`}>{children}</body>
+      <body>
+        <ThemeRegistry>
+          {children}
+          <ThemeSwitcher />
+        </ThemeRegistry>
+      </body>
     </html>
   );
 }
