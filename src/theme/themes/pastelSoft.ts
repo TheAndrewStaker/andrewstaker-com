@@ -21,7 +21,7 @@ const pastelSoft = createTheme({
     fontFamily: '"Nunito", "Helvetica", sans-serif',
     h1: {
       fontFamily: '"Quicksand", "Nunito", sans-serif',
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: "clamp(1.25rem, 5vw, 2rem)",
       letterSpacing: "-0.01em",
       lineHeight: 1.2,

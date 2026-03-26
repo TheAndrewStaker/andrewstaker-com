@@ -8,8 +8,9 @@ import {
   Typography,
   List,
   ListItemButton,
-  ListItemText,
   IconButton,
+  Chip,
+  Stack,
 } from "@mui/material";
 import PaletteIcon from "@mui/icons-material/Palette";
 import CloseIcon from "@mui/icons-material/Close";
@@ -33,18 +34,15 @@ export default function ThemeSwitcher() {
       </Fab>
 
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 320, p: 2 }}>
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1 }}>
-            <Typography variant="h6" fontWeight={700}>
-              Switch Theme
+        <Box sx={{ width: 300, p: 2, pb: 10 }}>
+          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+            <Typography variant="h6" fontWeight={500}>
+              Theme
             </Typography>
             <IconButton onClick={() => setOpen(false)} size="small">
               <CloseIcon />
             </IconButton>
           </Box>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Pick a theme to see how MUI components can be styled.
-          </Typography>
 
           <List disablePadding>
             {themeOptions.map((option) => {
@@ -57,14 +55,25 @@ export default function ThemeSwitcher() {
                     setThemeByKey(option.key);
                     setOpen(false);
                   }}
-                  sx={{ borderRadius: 1, mb: 0.5 }}
+                  sx={{ borderRadius: 1, mb: 0.5, py: 1.5, flexDirection: "column", alignItems: "stretch" }}
                 >
-                  <ListItemText
-                    primary={option.label}
-                    secondary={option.description}
-                    primaryTypographyProps={{ fontWeight: isSelected ? 700 : 500 }}
-                  />
-                  {isSelected && <CheckIcon color="primary" sx={{ ml: 1 }} />}
+                  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <Typography variant="body1" fontWeight={isSelected ? 600 : 400}>
+                      {option.label}
+                    </Typography>
+                    {isSelected && <CheckIcon color="primary" fontSize="small" />}
+                  </Box>
+                  <Stack direction="row" flexWrap="wrap" gap={0.5} sx={{ mt: 0.75 }}>
+                    {option.tags.map((tag) => (
+                      <Chip
+                        key={tag}
+                        label={tag}
+                        size="small"
+                        variant="outlined"
+                        sx={{ height: 20, fontSize: "0.625rem", pointerEvents: "none" }}
+                      />
+                    ))}
+                  </Stack>
                 </ListItemButton>
               );
             })}

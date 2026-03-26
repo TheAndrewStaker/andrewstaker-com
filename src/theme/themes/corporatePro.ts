@@ -21,7 +21,7 @@ const corporatePro = createTheme({
   typography: {
     fontFamily: '"IBM Plex Sans", "Helvetica Neue", sans-serif',
     h1: {
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: "clamp(1.2rem, 5vw, 1.85rem)",
       letterSpacing: "-0.01em",
       lineHeight: 1.2,

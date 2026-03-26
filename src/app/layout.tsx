@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { ReactNode } from "react";
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
@@ -15,11 +16,14 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const cookieStore = await cookies();
+  const themeKey = cookieStore.get("andrewstaker-theme")?.value;
+
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry>
+        <ThemeRegistry initialTheme={themeKey}>
           {children}
           <ThemeSwitcher />
         </ThemeRegistry>

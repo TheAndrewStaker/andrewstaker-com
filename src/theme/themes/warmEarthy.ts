@@ -21,7 +21,7 @@ const warmEarthy = createTheme({
     fontFamily: '"Source Sans 3", "Helvetica", sans-serif',
     h1: {
       fontFamily: '"Playfair Display", "Georgia", serif',
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: "clamp(1.25rem, 5vw, 2.1rem)",
       letterSpacing: "-0.01em",
       lineHeight: 1.15,

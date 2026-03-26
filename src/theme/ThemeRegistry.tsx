@@ -4,10 +4,17 @@ import { ReactNode } from "react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeContextProvider } from "@/theme/ThemeContext";
 
-export default function ThemeRegistry({ children }: { children: ReactNode }) {
+interface ThemeRegistryProps {
+  children: ReactNode;
+  initialTheme?: string;
+}
+
+export default function ThemeRegistry({ children, initialTheme }: ThemeRegistryProps) {
   return (
     <AppRouterCacheProvider options={{ key: "mui" }}>
-      <ThemeContextProvider>{children}</ThemeContextProvider>
+      <ThemeContextProvider initialTheme={initialTheme}>
+        {children}
+      </ThemeContextProvider>
     </AppRouterCacheProvider>
   );
 }

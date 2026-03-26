@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import EmailIcon from "@mui/icons-material/Email";
+import ArticleIcon from "@mui/icons-material/Article";
 
 const accomplishments = [
   "12+ years in enterprise software engineering",
@@ -106,6 +107,16 @@ export default function Home() {
               >
                 Contact Me
               </Button>
+              <Button
+                variant="outlined"
+                href="/blog"
+                startIcon={<ArticleIcon />}
+                size="large"
+                fullWidth
+                sx={{ maxWidth: { sm: "fit-content" } }}
+              >
+                Blog
+              </Button>
             </Stack>
           </CardContent>
         </Card>
@@ -159,9 +170,9 @@ export default function Home() {
           variant="body2"
           color="text.secondary"
           align="center"
-          sx={{ mt: 6 }}
+          sx={{ mt: 6, mb: 10 }}
         >
-          Built with Next.js + MUI. Toggle themes with the palette button.
+          Built with Next.js + MUI
         </Typography>
       </Container>
     </Box>

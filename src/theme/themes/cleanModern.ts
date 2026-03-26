@@ -16,7 +16,7 @@ const cleanModern = createTheme({
   typography: {
     fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: "clamp(1.25rem, 5vw, 2rem)",
       letterSpacing: "-0.02em",
       lineHeight: 1.2,

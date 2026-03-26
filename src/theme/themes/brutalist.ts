@@ -20,7 +20,7 @@ const brutalist = createTheme({
   typography: {
     fontFamily: '"Space Grotesk", "Arial", sans-serif',
     h1: {
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: "clamp(1.25rem, 5vw, 2.2rem)",
       textTransform: "uppercase",
       letterSpacing: "-0.02em",
